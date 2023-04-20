@@ -20,7 +20,7 @@
          "context": [""]
         },
         {"tag": "negative",
-         "patterns": ["Get me help now!", "I don't want to talk to you", "I hate you", "Get me a human to talk to", "You can't help me", "No, I hate robots"],
+         "patterns": ["Get me help now!!!", "I don't want to talk to you", "I hate you", "Get me a human to talk to", "You can't help me", "No, I hate robots"],
          "responses": ["I'm sorry for the hassle. I can help however I can", "Your troubles won't last any longer if we can work together", "I can assist however you need me too", "Not to be rude, but harmful words won't get us anywhere. I can help however I can."],
          "context": [""]
         },
@@ -56,7 +56,7 @@
         },
         {"tag": "account",
         "patterns": ["I'm having problems logging into my account", "I want to edit my personal information", "problems with cancelling an order", "I need help modifying my personal details", "I have to modify the personal data, can you help me?"],
-        "responses": ["Let me look into that for you, may I have your order number?", "Of course! Lets look into that."],
+        "responses": ["Let me look into that for you, may I have your email?", "Of course! Lets look into that."],
         "context": [""]
        },
         {"tag": "orders",
@@ -66,8 +66,18 @@
         },
         {"tag": "refund",
         "patterns": ["I ordered the wrong item, I want to return for a refund", "I demand a refund", "I never recieved my order, can I be refunded" ],
-        "responses": ["I've experienced this problem before, let me look into that for you. May I have your order number?"],
+        "responses": ["I've experienced this problem before, let me look into that for you. May I have your order number?", "No problem, we all make mistakes. May I have your order number?"],
         "context": [""]
-       }
+       },
+{"tag": "help",
+         "patterns": ["I'm in need of service.", "How can you help me?", "Is there anyway you could help me?", "I need help please"],
+         "responses": ["I can help with: Account, Orders, and Refunds", "Of course I can help you. I can help with: Account, Orders, and Refunds", "Your helper has arrived. I can help with: Account, Orders, and Refunds"],
+         "context": [""]
+        },
+{"tag": "name",
+         "patterns": ["Whats you're name?", "Who are you?", "Who's helping me right now?", "Can I have your name?"],
+         "responses": ["My name ALICE. I am your virtual AI Chatbot that can help with all your problems", "My name is ALICE, an assistant AI Chatbot"],
+         "context": [""]
+        }
    ]
 }

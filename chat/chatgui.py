@@ -115,7 +115,7 @@ def send():
         else :
             print("Neutral")
         #print("{:-<65} {}".format(res, str(rs)))
-        ChatLog.insert(END, "Bot: " + res + '\n\n')
+        ChatLog.insert(END, "ALICE: " + res + '\n\n')
             
         ChatLog.config(state=DISABLED)
         ChatLog.yview(END)
