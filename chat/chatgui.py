@@ -1,5 +1,4 @@
 import nltk
-nltk.download('omw-1.4')
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 import pickle
@@ -9,9 +8,11 @@ from keras.models import load_model
 model = load_model('chatbot_model.h5')
 import json
 import random
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
+analyzer = SentimentIntensityAnalyzer()
 
 
 def clean_up_sentence(sentence):
@@ -75,11 +76,45 @@ def send():
     EntryBox.delete("0.0",END)
 
     if msg != '':
+        ms = analyzer.polarity_scores(msg)
+        print("Overall sentiment dictionary is : ", ms)
+        print("sentence was rated as ", ms['neg']*100, "% Negative")
+        print("sentence was rated as ", ms['neu']*100, "% Neutral")
+        print("sentence was rated as ", ms['pos']*100, "% Positive")
+        print("Sentence Overall Rated As", end = " ")
+ 
+        # decide sentiment as positive, negative and neutral
+        if ms['compound'] >= 0.05 :
+            print("Positive")
+ 
+        elif ms['compound'] <= - 0.05 :
+            print("Negative")
+ 
+        else :
+            print("Neutral")
+        #print("{:-<65} {}".format(msg, str(ms)))
         ChatLog.config(state=NORMAL)
         ChatLog.insert(END, "You: " + msg + '\n\n')
         ChatLog.config(foreground="#442265", font=("Verdana", 12 ))
     
         res = chatbot_response(msg)
+        rs = analyzer.polarity_scores(res)
+        print("Overall sentiment dictionary is : ", rs)
+        print("sentence was rated as ", rs['neg']*100, "% Negative")
+        print("sentence was rated as ", rs['neu']*100, "% Neutral")
+        print("sentence was rated as ", rs['pos']*100, "% Positive")
+        print("Sentence Overall Rated As", end = " ")
+ 
+        # decide sentiment as positive, negative and neutral
+        if rs['compound'] >= 0.05 :
+            print("Positive")
+ 
+        elif rs['compound'] <= - 0.05 :
+            print("Negative")
+ 
+        else :
+            print("Neutral")
+        #print("{:-<65} {}".format(res, str(rs)))
         ChatLog.insert(END, "Bot: " + res + '\n\n')
             
         ChatLog.config(state=DISABLED)
@@ -117,3 +152,4 @@ EntryBox.place(x=128, y=401, height=90, width=265)
 SendButton.place(x=6, y=401, height=90)
 
 base.mainloop()
+
