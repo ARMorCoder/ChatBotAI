@@ -29,6 +29,31 @@
          "responses": ["My apologies, I didn't mean to confuse you. Could you repeat your question?", "There may be some feedback error I am not understanding from you. Ask me again please and I'll be happy to help."],
          "context": [""]
         },
+	  {"tag": "positive",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"],
+         "context": [""]
+        },
+        {"tag": "sad",
+         "patterns": ["That's not helpful to me", "I don't think that will be it", "That's not quite it", ""],
+         "responses": ["My apologies, I didn't mean to give you incorrect information. Could you provide more info", "I'm sorry for that. If you could help with more information, I can help better", "Sorry! I'm helping to the best of my abilities! Is there anymore info you can provide?"],
+         "context": [""]
+        },
+        {"tag": "surprise",
+         "patterns": ["Oh, that's exactly what I need!", "That's what I'm looking for! Thanks!", "You provided what I needed", "An AI helped me. Wow!"],
+         "responses": ["Times are changing. I hope I can be even more help soon", "That's a relief! I know AI, like myself, can be more helpful for everyone.", "It's a shock, I know, but I can help everyone that I am able to."],
+         "context": [""]
+        },
+        {"tag": "sarcasm",
+         "patterns": ["Wow, I really needed an AI instead of a human right now", "Just what I needed. A robot", "Lucky me, more time I'm losing", "Wasting my time is just what I wanted"],
+         "responses": ["Sarcasm won't get us nowhere, you know.", "I can help better if we both take this seriously", "I can provide assistance if you provide serious info"],
+         "context": [""]
+        },
+        {"tag": "apologetic",
+         "patterns": ["I'm sorry", "Sorry for the hassle", "My apologies if I was rude.", "I was rude before. Sorry"],
+         "responses": ["It's quite alright.", "That's ok, AI's do tend to be seen as a annoyance to the public but we just want to help.", "It's okay. I'm glad we're on the same page now.", "It's ok, thank you for apologizing."],
+         "context": [""]
+        },
         {"tag": "options",
          "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
          "responses": ["I can guide you through Adverse drug reaction list, Blood pressure tracking, Hospitals and Pharmacies", "Offering support for Adverse drug reaction, Blood pressure, Hospitals and Pharmacies"],
