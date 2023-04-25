@@ -56,22 +56,27 @@
         },
         {"tag": "account",
         "patterns": ["I'm having problems logging into my account", "I want to edit my personal information", "problems with cancelling an order", "I need help modifying my personal details", "I have to modify the personal data, can you help me?"],
-        "responses": ["Let me look into that for you, may I have your email?", "Of course! Lets look into that."],
+        "responses": ["Let me look into that for you, may I have your email?", "Of course! Lets look into that. What's the email for the account?"],
+        "context": [""]
+       },
+        {"tag": "account_sol",
+        "patterns": ["My email is workmail@gmail.com", "Alright. My email is joe903@yahoo.com", "truemail@gmail.com", "My email for the account is jane38@realmail.com"],
+        "responses": ["Alrighty. A link will be sent to this email for you to make any changes to your personal account."],
         "context": [""]
        },
         {"tag": "orders",
-         "patterns": ["My order is late again", "I do not want the order", "problems with cancelling an order", "would it be possible to change an order I have made?"],
-         "responses": ["I apologize you had to deal with that, let me look into this issue for you. Can I have your order number?", "Of course! Lets look into getting that fixed"],
+         "patterns": ["My order is late again", "I do not want the order", "problems with cancelling an order", "would it be possible to change an order I have made?", "I have an issue with my order.", "I wanted a refund on an order"],
+         "responses": ["I apologize you had to deal with that, let me look into this issue for you. Can I have your order number?", "Of course! Lets look into getting that fixed. May I have your order number?"],
          "context": [""]
         },
-        {"tag": "refund",
-        "patterns": ["I ordered the wrong item, I want to return for a refund", "I demand a refund", "I never recieved my order, can I be refunded" ],
-        "responses": ["I've experienced this problem before, let me look into that for you. May I have your order number?", "No problem, we all make mistakes. May I have your order number?"],
-        "context": [""]
-       },
+        {"tag": "orders_sol",
+         "patterns": ["Ok. My order number is ####-####", "My number is ####-####", "####-####", "####-####", "####-####", "My number is ####-####", "My order number is ####-####"],
+         "responses": ["Ok! A link will be sent to your email to see your order status and make any changes or cancellations to your order."],
+         "context": [""]
+        },
 {"tag": "help",
          "patterns": ["I'm in need of service.", "How can you help me?", "Is there anyway you could help me?", "I need help please"],
-         "responses": ["I can help with: Account, Orders, and Refunds", "Of course I can help you. I can help with: Account, Orders, and Refunds", "Your helper has arrived. I can help with: Account, Orders, and Refunds"],
+         "responses": ["I can help with: Account and Orders", "Of course I can help you. I can help with: Account and Orders", "Your helper has arrived. I can help with: Account and Orders"],
          "context": [""]
         },
 {"tag": "name",
